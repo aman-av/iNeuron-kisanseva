@@ -21,13 +21,13 @@ router.post("/login",  async(req, res, next) => { // req is request, res is resp
                 let auth = bcrypt.compareSync( req.body.password , user["password"] )
 				if(auth && user.type==="farmer")
 				{
-					var redir = { redirect: "/login" , message:"farmer Login Successfully" , userName:req.user.username , user: user};
+					var redir = { redirect: "/login" , message:"farmer Login Successfully" , user: user};
 		        }else if(auth &&  user.type==="labour")
 				{
-          			var redir = { redirect: "/login" , message:"labour Login Successfully" , userName:req.user.username , user: user};
+          			var redir = { redirect: "/login" , message:"labour Login Successfully" ,  user: user};
 				}else if(auth &&  user.type==="provider")
 				{
-          			var redir = { redirect: "/login" , message:"provider Login Successfully" , userName:req.user.username , user: user};
+          			var redir = { redirect: "/login" , message:"provider Login Successfully" , user: user};
 				}
                 else{
                     var redir = {  message:"Incorrect Username or Wrong Password"};

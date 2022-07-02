@@ -31,8 +31,12 @@ router.post("/createUser", async (req, res, next) => { // req is request, res is
                 name:name
                 
         	});
+
+
         	await newUser.save();
-        	var redir = { redirect: "/", message:"New student Created", user: newUser};
+
+            delete newUser.password
+        	var redir = { redirect: "/", message:"New user Created", user: newUser};
         	return res.json(redir);
         } 	
 });
