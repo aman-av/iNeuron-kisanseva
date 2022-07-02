@@ -89,12 +89,12 @@ const session = require("express-session");
 const config = require('./config/key')
 
 
-const dbURI = config.mongoURI
-mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
-.then(result => {
-	console.log("Mongoose Is Connected");
-})
-.catch(err => console.log(err));
+// const dbURI = config.mongoURI
+// mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
+// .then(result => {
+// 	console.log("Mongoose Is Connected");
+// })
+// .catch(err => console.log(err));
 
 
 // app.use(flash());
@@ -128,7 +128,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
 			
 			
 			
-			
+
 			
 			// const loginRoute = require('./routes/login')                        //Login route
 			// app.use(loginRoute)
@@ -136,8 +136,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
 			// const createStudent = require('./routes/createUser')                        //Login route
 			// app.use(createStudent)
 			
-			const test = require('./routes/test')                        //Login route
-			app.use(test)
+			// const test = require('./routes/test')                        //Login route
+			// app.use(test)
 			
 			app.get('/',(req,res)=>{
 				
