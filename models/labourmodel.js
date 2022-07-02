@@ -5,17 +5,14 @@ const labours = new Schema({
     username: {
         type: String
     },
-    name: {
+    duratioin: {
         type: String
     },
-    rate:{
+    wages:{
         type:Number
     },
-    availability:{
-        type:String
-    },
-    contactnumber:{
-        type:String
+    requirement:{
+        type:Number
     }
 });
 

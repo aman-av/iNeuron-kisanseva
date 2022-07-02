@@ -11,20 +11,13 @@ router.use(flash())
 
 router.post("/labourpost",  async(req, res, next) => { // req is request, res is response
         	
-				const user = await Labour.findOne({
-					username: req.query.id
-				})
-                
-                if(user!==undefined||user!==null)
-                {
-
+				
                 
                     const newLabour = await new Labour({
                         username: req.body.username,
-                        name: req.body.name,
-                        rate:req.body.rate,
-                        availability:req.body.availability,
-                        contactnumber:req.body.contactnumber,
+                        duration: req.body.duration,
+                        wages:req.body.wages,
+                        requirement:req.body.requirement,
                       
                   });
       
@@ -34,28 +27,29 @@ router.post("/labourpost",  async(req, res, next) => { // req is request, res is
                     var redir = { "status":"labour added"};
         	        return res.json(redir);
                 
-                }else
-                {
-                    return res.json({"status":"user not found"})
-                }
           
         	});
 
-            router.get("/labourget",  async(req, res, next) => { // req is request, res is response
+            router.post("/labourupdate",  async(req, res, next) => { // req is request, res is response
         	
-				const user = await Labour.findOne({
-					username: req.query.id
-				})
-                
+				
+                let username = req.body.username
+                let count = req.body.count
+
+                let user = Labour.findOne({
+                    username:username
+                })
                 if(user!==undefined||user!==null)
                 {
 
                 
-                   let doc = await Labour.find({username:req.query.id});
+                   let doc = await Labour.updateOne({username:username},{$inc:{
+                    requirement:-1*count
+                   }});
 
-                   console.log(doc);
+                   
 
-                    var redir = { "status":"success","data":doc};
+                    var redir = { "status":"updated"};
         	        return res.json(redir);
                 
                 }else
