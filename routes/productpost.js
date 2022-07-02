@@ -20,7 +20,7 @@ router.post("/productpost",  async(req, res, next) => { // req is request, res i
                 {
 
                 
-                    const newProduct = new Product({
+                    const newProduct = await new Product({
                         username: req.body.username,
                         productname: req.body.productname,
                         price:req.body.price,

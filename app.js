@@ -100,13 +100,13 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 ////cors is used to allow cross-origin request
 
-// app.use(
-// 	  	cors({
-// 			    origin: "http://localhost:3000", 
-// 		    	methods: [ "GET", "POST" ],
-// 		    	credentials: true,
-// 		  	})
-// 		); 
+app.use(
+	  	cors({
+			    origin: "http://localhost:19006", 
+		    	methods: [ "GET", "POST" ],
+		    	credentials: true,
+		  	})
+		); 
 		
 		app.use(
 			session({
