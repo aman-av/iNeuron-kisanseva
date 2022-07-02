@@ -81,11 +81,11 @@ try{
 const mongoose = require("mongoose"); // mongo DB used to save users's account info
 // const cors = require("cors");
 const passport = require("passport"); // passport-local used for user authentication
-const passportLocal = require("passport-local").Strategy;
-const cookieParser = require("cookie-parser");
+// const passportLocal = require("passport-local").Strategy;
+// const cookieParser = require("cookie-parser");
 const session = require("express-session");
-const bodyParser = require("body-parser");
-const flash = require("express-flash");
+// const bodyParser = require("body-parser");
+// const flash = require("express-flash");
 const config = require('./config/key')
 
 
@@ -97,9 +97,9 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
 .catch(err => console.log(err));
 
 
-app.use(flash());
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+// app.use(flash());
+// app.use(bodyParser.json());
+// app.use(bodyParser.urlencoded({ extended: true }));
 
 ////cors is used to allow cross-origin request
 
@@ -119,7 +119,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 			})
 			);
 			
-			app.use(cookieParser("secretcode"));
+			// app.use(cookieParser("secretcode"));
 			
 			////Initializing local-passport for user authentication
 			app.use(passport.initialize());
@@ -130,11 +130,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 			
 			
 			
-			const loginRoute = require('./routes/login')                        //Login route
-			app.use(loginRoute)
+			// const loginRoute = require('./routes/login')                        //Login route
+			// app.use(loginRoute)
 			
-			const createStudent = require('./routes/createUser')                        //Login route
-			app.use(createStudent)
+			// const createStudent = require('./routes/createUser')                        //Login route
+			// app.use(createStudent)
 			
 			const test = require('./routes/test')                        //Login route
 			app.use(test)
