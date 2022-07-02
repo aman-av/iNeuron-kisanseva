@@ -1,10 +1,12 @@
-
+const mongoose = require("mongoose");
 const router = require('express').Router()
 const passport = require('passport')
 const flash = require('express-flash')
-const User = require('../models/usermodel')
+// const User = require('../models/usermodel')
 var bcrypt = require('bcryptjs');
-
+require("../models/usermodel");
+// require("../models/Date");
+const User = mongoose.model("users");
 
 router.use(flash())
 

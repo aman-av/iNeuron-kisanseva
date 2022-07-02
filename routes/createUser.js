@@ -1,10 +1,15 @@
 const router = require('express').Router()
+const mongoose = require("mongoose");
 const passport = require('passport')
 const flash = require('express-flash')
-const User = require('../models/usermodel')
+// const User = require('../models/usermodel')
 const bcrypt = require('bcryptjs')
 const { checkAuthenticated, checkNotAuthenticated } = require('../middleware/auth')
 router.use(flash())
+require("../models/usermodel");
+// require("../models/Date");
+const User = mongoose.model("users");
+// const Dates = mongoose.model("eventdates");
 
 router.post("/createUser", async (req, res, next) => { // req is request, res is response
 
