@@ -133,6 +133,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 			const createStudent = require('./routes/createUser')                        //Login route
 			app.use(createStudent)
 			
+			const productpost = require('./routes/productpost')                        //Login route
+			app.use(productpost)
+
 			const test = require('./routes/test')                        //Login route
 			app.use(test)
 			
