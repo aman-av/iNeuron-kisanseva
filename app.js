@@ -119,9 +119,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 			app.use(cookieParser("secretcode"));
 			
 			////Initializing local-passport for user authentication
-			app.use(passport.initialize());
-			app.use(passport.session());
-			require("./middleware/passport-config")(passport);
+			// app.use(passport.initialize());
+			// app.use(passport.session());
+			// require("./middleware/passport-config")(passport);
 			
 			
 			

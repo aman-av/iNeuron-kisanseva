@@ -10,6 +10,9 @@ const users = new Schema({
     },
     type:{
         type:String
+    },
+    name:{
+        type:String
     }
 });
 

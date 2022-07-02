@@ -1,10 +1,8 @@
 const router = require('express').Router()
 const mongoose = require("mongoose");
-const passport = require('passport')
 const flash = require('express-flash')
 // const User = require('../models/usermodel')
 const bcrypt = require('bcryptjs')
-const { checkAuthenticated, checkNotAuthenticated } = require('../middleware/auth')
 router.use(flash())
 require("../models/usermodel");
 // require("../models/Date");
@@ -13,24 +11,7 @@ const User = mongoose.model("users");
 
 router.post("/createUser", async (req, res, next) => { // req is request, res is response
 
-    mongoose.connection.on('connecting', function(){
-        console.log('connecting');
-     });
-     
-     mongoose.connection.on('connected', function() {
-         console.log('connected');
-     });
-     
-     mongoose.connection.on('error', function(err) {
-        console.log('error');
-         
-     });
-     
-     mongoose.connection.on('disconnected', function() {
-        console.log('disconnected');
-         
-     })
-     
+        const name = req.body.name
         const username=req.body.username
         const password=req.body.password
         const type = req.body.type
@@ -46,7 +27,8 @@ router.post("/createUser", async (req, res, next) => { // req is request, res is
         	const newUser = new User({
           		username: req.body.username,
           		password: hashedPassword,
-                type:type
+                type:type,
+                name:name
                 
         	});
         	await newUser.save();

@@ -10,19 +10,12 @@ const User = mongoose.model("users");
 
 router.use(flash())
 
-router.post("/login",  (req, res, next) => { // req is request, res is response
-    passport.authenticate("local", (err, user, info) => {
-      	if (err) throw err;  
-      	if (!user) {
-        	var redir =   {  message:"Incorrect Username or Wrong Password"};
-        	return res.json(redir);
-    	} 
-      	else {
+router.post("/login",  async(req, res, next) => { // req is request, res is response
+    
             
-        	req.logIn(user, async (err) => {
-          		if (err) throw err;
+        	
 				const user = await User.findOne({
-					username: req.user.username
+					username: req.body.username
 				})
              
                 let auth = bcrypt.compareSync( req.body.password , user["password"] )
@@ -43,9 +36,7 @@ router.post("/login",  (req, res, next) => { // req is request, res is response
           		///// redir is the redirect information passed to front end react app.
           		return res.json(redir);
         	});
-      	}
-    })(req, res, next);
-});
+    
 
 
 // router.get('/login', async (req, res) => {
@@ -70,16 +61,7 @@ router.post("/login",  (req, res, next) => { // req is request, res is response
 // 	return res.status(200).json({message: 'LOGOUT_SUCCESS'});
 //   });
 
-  router.get('/logout', function(req, res){
 
-    req.logout(function(err) {
-        if (err) { return next(err); }
-        
-        req.session.destroy();
-        return res.status(200).json({message: 'LOGOUT_SUCCESS'});
-      });
-    
-  });
 
 
 // router.get('/logout', (req, res) => {
