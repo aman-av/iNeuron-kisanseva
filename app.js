@@ -85,10 +85,10 @@ const cookieParser = require("cookie-parser");
 const session = require("express-session");
 const bodyParser = require("body-parser");
 const flash = require("express-flash");
-const config = require('./config.json')
+const config = require('./config/key')
 
 
-const dbURI = config.mongoDB.url
+const dbURI = config.mongoURI
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(result => {
         console.log("Mongoose Is Connected");
