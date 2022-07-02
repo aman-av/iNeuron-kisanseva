@@ -138,6 +138,9 @@ app.use(
 
 			const test = require('./routes/test')                        //Login route
 			app.use(test)
+
+			const labourRoute = require('./routes/labour')                        //Login route
+			app.use(labourRoute)
 			
 			app.get('/',(req,res)=>{
 				
