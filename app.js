@@ -78,7 +78,7 @@ try{
 	// socket io is required for successful connection between peers
 	// const io = require('socket.io')(server)
 	
-// const mongoose = require("mongoose"); // mongo DB used to save users's account info
+const mongoose = require("mongoose"); // mongo DB used to save users's account info
 // const cors = require("cors");
 // const passport = require("passport"); // passport-local used for user authentication
 // const passportLocal = require("passport-local").Strategy;
@@ -86,15 +86,15 @@ try{
 // const session = require("express-session");
 // const bodyParser = require("body-parser");
 // const flash = require("express-flash");
-// const config = require('./config/key')
+const config = require('./config/key')
 
 
-// const dbURI = config.mongoURI
-// mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
-// .then(result => {
-// 	console.log("Mongoose Is Connected");
-// })
-// .catch(err => console.log(err));
+const dbURI = config.mongoURI
+mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
+.then(result => {
+	console.log("Mongoose Is Connected");
+})
+.catch(err => console.log(err));
 
 
 // app.use(flash());
