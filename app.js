@@ -119,7 +119,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 			})
 			);
 			
-			// app.use(cookieParser("secretcode"));
+			app.use(cookieParser("secretcode"));
 			
 			////Initializing local-passport for user authentication
 			app.use(passport.initialize());
