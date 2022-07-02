@@ -73,7 +73,7 @@ const app = express();
 // const accountSid = 'AC9ad0084bd398862b8f5348c7787d440e';
 // const authToken = 'ee2954277e1e6eb64816ec2edd4203fa'; 
 // const client = new twilio(accountSid, authToken);
-const server = require('http').Server(app)
+// const server = require('http').Server(app)
 // socket io is required for successful connection between peers
 // const io = require('socket.io')(server)
 
@@ -92,7 +92,6 @@ const dbURI = config.mongoURI
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(result => {
         console.log("Mongoose Is Connected");
-        server.listen(process.env.PORT, () => console.log(`server is running on port ${process.env.PORT}`));
     })
     .catch(err => console.log(err));
 
@@ -136,6 +135,14 @@ app.use(loginRoute)
 const createStudent = require('./routes/createUser')                        //Login route
 app.use(createStudent)
 
+const test = require('./routes/test')                        //Login route
+app.use(test)
+
+app.get('/',(req,res)=>{
+
+	res.send('hi buddy')
+})
+app.listen(process.env.PORT, () => console.log(`server is running on port ${process.env.PORT}`));
 // const campusTiming = require('./routes/campusTiming')                        //Login route
 // app.use(campusTiming)
 
