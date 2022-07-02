@@ -13,6 +13,24 @@ const User = mongoose.model("users");
 
 router.post("/createUser", async (req, res, next) => { // req is request, res is response
 
+    mongoose.connection.on('connecting', function(){
+        console.log('connecting');
+     });
+     
+     mongoose.connection.on('connected', function() {
+         console.log('connected');
+     });
+     
+     mongoose.connection.on('error', function(err) {
+        console.log('error');
+         
+     });
+     
+     mongoose.connection.on('disconnected', function() {
+        console.log('disconnected');
+         
+     })
+     
         const username=req.body.username
         const password=req.body.password
         const type = req.body.type

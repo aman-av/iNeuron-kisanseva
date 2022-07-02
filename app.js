@@ -90,11 +90,8 @@ const config = require('./config/key')
 
 
 const dbURI = config.mongoURI
-mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
-.then(result => {
-	console.log("Mongoose Is Connected");
-})
-.catch(err => console.log(err));
+mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true });
+
 
 
 app.use(flash());
@@ -103,13 +100,13 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 ////cors is used to allow cross-origin request
 
-app.use(
-	  	cors({
-			    origin: "http://localhost:3000", 
-		    	methods: [ "GET", "POST" ],
-		    	credentials: true,
-		  	})
-		); 
+// app.use(
+// 	  	cors({
+// 			    origin: "http://localhost:3000", 
+// 		    	methods: [ "GET", "POST" ],
+// 		    	credentials: true,
+// 		  	})
+// 		); 
 		
 		app.use(
 			session({
