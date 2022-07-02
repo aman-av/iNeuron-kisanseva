@@ -17,7 +17,7 @@ router.post("/login",  async(req, res, next) => { // req is request, res is resp
 				const user = await User.findOne({
 					username: req.body.username
 				})
-             
+             delete user.password;
                 let auth = bcrypt.compareSync( req.body.password , user["password"] )
 				if(auth && user.type==="farmer")
 				{
