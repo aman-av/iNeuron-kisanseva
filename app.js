@@ -64,7 +64,7 @@
 
 try{
 
-	const res = require('dotenv').config()
+	// const res = require('dotenv').config()
 	// console.log(res)
 	
 	const express = require("express");
@@ -143,7 +143,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 				
 				res.send('hi buddy')
 			})
-			app.listen(process.env.PORT, () => console.log(`server is running on port ${process.env.PORT}`));
+			let port = process.env.PORT || 8000
+			app.listen(port);
 		}
 		catch(err)
 		{
