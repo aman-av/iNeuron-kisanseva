@@ -12,7 +12,8 @@ router.use(flash())
 
 router.post("/login",  async(req, res, next) => { // req is request, res is response
     
-            
+            if(req.body.username===undefined||req.body.username===null)
+			res.sendStatus(401)
         	
 				const user = await User.findOne({
 					username: req.body.username
