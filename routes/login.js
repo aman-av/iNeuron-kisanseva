@@ -18,9 +18,10 @@ router.post("/login",  async(req, res, next) => { // req is request, res is resp
 				const user = await User.findOne({
 					username: req.body.username
 				})
+				let auth = false
 				if(user)
-             delete user.password;
-                let auth = bcrypt.compareSync( req.body.password , user["password"] )
+             {delete user.password;
+                auth = bcrypt.compareSync( req.body.password , user["password"] )}
 				if(auth && user.type==="farmer")
 				{
 					var redir = { redirect: "/login" , message:"farmer Login Successfully" , user: user};
