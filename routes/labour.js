@@ -59,4 +59,19 @@ router.post("/labourpost",  async(req, res, next) => { // req is request, res is
           
         	});
 
+            router.get("/alljobs",  async(req, res, next) => { // req is request, res is response
+        	
+				
+               
+                let doc = await Labour.find({sold:false});
+
+                console.log(doc);
+
+                 var redir = { "status":"success","data":doc};
+                 return res.json(redir);
+                
+                
+          
+        	});
+
 module.exports = router

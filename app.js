@@ -23,7 +23,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 ////cors is used to allow cross-origin request
-
+// var whitelist = ['http://example1.com', 'http://example2.com']
 app.use(
 	  	cors({
 			    origin: "http://localhost:19006", 
