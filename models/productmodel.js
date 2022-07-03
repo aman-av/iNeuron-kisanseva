@@ -19,6 +19,9 @@ const products = new Schema({
     },
     manufacturedate:{
         type:Number
+    },
+    sold:{
+        type:Boolean
     }
 });
 

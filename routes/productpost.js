@@ -26,7 +26,8 @@ router.post("/productpost",  async(req, res, next) => { // req is request, res i
                         price:req.body.price,
                         createdat:req.body.createdat,
                         contactnumber:req.body.contactnumber,
-                        manufacturedate:req.body.manufacturedate
+                        manufacturedate:req.body.manufacturedate,
+                        sold:false
                       
                   });
       
